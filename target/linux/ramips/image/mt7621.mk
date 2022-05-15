@@ -672,6 +672,14 @@ define Device/gnubee_gb-pc2
 endef
 TARGET_DEVICES += gnubee_gb-pc2
 
+define Device/hilink_hlk-7621a
+  IMAGE_SIZE := 32448k
+  DEVICE_VENDOR := HiLink
+  DEVICE_MODEL := HLK-7621A
+  DEVICE_PACKAGES := kmod-usb3
+endef
+TARGET_DEVICES += hilink_hlk-7621a
+
 define Device/hiwifi_hc5962
   $(Device/dsa-migration)
   BLOCKSIZE := 128k
@@ -842,6 +850,12 @@ define Device/jcg_q20
   DEVICE_PACKAGES := kmod-mt7915e uboot-envtools
 endef
 TARGET_DEVICES += jcg_q20
+
+define Device/jcg_q20-ubootmod
+  $(Device/jcg_q20)
+  DEVICE_VARIANT := U-Boot mod
+endef
+TARGET_DEVICES += jcg_q20-ubootmod
 
 define Device/jcg_y2
   $(Device/dsa-migration)
@@ -1215,6 +1229,16 @@ define Device/netis_wf2881
 endef
 TARGET_DEVICES += netis_wf2881
 
+define Device/oraybox_x3a
+  $(Device/dsa-migration)
+  $(Device/uimage-lzma-loader)
+  IMAGE_SIZE := 15360k
+  DEVICE_VENDOR := OrayBox
+  DEVICE_MODEL := X3A
+  DEVICE_PACKAGES := kmod-mt7615e kmod-mt7615-firmware
+endef
+TARGET_DEVICES += oraybox_x3a
+
 define Device/phicomm_k2p
   IMAGE_SIZE := 15744k
   DEVICE_VENDOR := Phicomm
@@ -1252,6 +1276,16 @@ define Device/raisecom_msg1500-x-00
 	kmod-usb-ledtrig-usbport uboot-envtools
 endef
 TARGET_DEVICES += raisecom_msg1500-x-00
+
+define Device/raisecom_msg1500-z-00
+  $(Device/dsa-migration)
+  IMAGE_SIZE := 16064k
+  DEVICE_VENDOR := RAISECOM
+  DEVICE_MODEL := MSG1500
+  DEVICE_VARIANT := Z.00
+  DEVICE_PACKAGES := kmod-mt7603 kmod-mt76x2 kmod-usb3
+endef
+TARGET_DEVICES += raisecom_msg1500-z-00
 
 define Device/samknows_whitebox-v8
   $(Device/dsa-migration)
